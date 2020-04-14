@@ -1,3 +1,35 @@
+// get data
+
+// listen for auth status changes
+fAuth.onAuthStateChanged((user) => {
+  if (user) {
+    fDb
+      .collection("posts")
+      .get()
+      .then((snapshot) => {
+        setupPosts(snapshot.docs);
+      });
+  } else {
+    setupPosts([]);
+  }
+});
+
+// create post
+
+const createForm = document.querySelector("#create-form");
+createForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  fDb
+    .collection("posts")
+    .add({
+      title: createForm["title"].value,
+      content: createForm["content"].value,
+    })
+    .then(() => {
+      createForm.reset();
+    });
+});
+
 // signup
 
 const signupForm = document.querySelector("#signup-form");
@@ -17,9 +49,7 @@ signupForm.addEventListener("submit", (e) => {
 const logout = document.querySelector("#logout");
 logout.addEventListener("click", (e) => {
   e.preventDefault();
-  fAuth.signOut().then(() => {
-    console.log("user logged out");
-  });
+  fAuth.signOut();
 });
 
 // login
@@ -32,9 +62,6 @@ loginForm.addEventListener("submit", (e) => {
   const password = loginForm["login-password"].value;
 
   fAuth.signInWithEmailAndPassword(email, password).then((cred) => {
-    console.log(cred.user);
     loginForm.reset();
   });
 });
-
-//test 2
