@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Login System</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>Account</li>
+        <li><a id="logout">Logout</a></li>
+        <li>Post</li>
+        <li>Login</li>
+        <li>Sign up</li>
+      </ul>
+    </nav>
+    <div id="signup-id">
+      <div class="">
+        <h4>Sign up</h4>
+        <form id="signup-form">
+          <div class="">
+            <input type="email" id="signup-email" required />
+            <label for="signup-email">Email Address</label>
+          </div>
+          <div class="">
+            <input type="password" id="signup-password" required />
+            <label for="signup-password">Choose Password</label>
+          </div>
+          <button>Sign up</button>
+        </form>
+      </div>
+    </div>
+    <div class="">
+      <div class="">
+        <h4>Login</h4>
+        <form id="login-form">
+          <div class="">
+            <input type="email" id="login-email" required />
+            <label for="login-email">Email Address</label>
+          </div>
+          <div class="">
+            <input type="password" id="login-password" required />
+            <label for="login-password">Your Password</label>
+          </div>
+          <button>Login</button>
+        </form>
+      </div>
+    </div>
+    <div class="">
+      <div class="">
+        <h4>Account Details</h4>
+        <br />
+        <div class=""></div>
+      </div>
+    </div>
+    <div class="">
+      <div class="">
+        <h4>Post</h4>
+        <form id="create-form">
+          <div class="">
+            <input type="text" id="title" required />
+            <label for="login-email">Post Title</label>
+          </div>
+          <div class="">
+            <textarea name="" id="content"></textarea>
+            <label for="content">Post Content</label>
+          </div>
+          <button>Create</button>
+        </form>
+      </div>
+    </div>
+    <h4>Posts</h4>
+    <div class="">
+      <ul>
+        <li>
+          <div class="">Post Title</div>
+          <div class="">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro
+            quasi quis enim doloremque amet iusto quisquam suscipit ea quod
+            veniam!
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDAG-WSu2KvAFJrsnAQEl4nLAbDVwFnsTI",
+        authDomain: "my-first-login-system.firebaseapp.com",
+        databaseURL: "https://my-first-login-system.firebaseio.com",
+        projectId: "my-first-login-system",
+        storageBucket: "my-first-login-system.appspot.com",
+        messagingSenderId: "809816479172",
+        appId: "1:809816479172:web:1eb063a3a07ee2bb42c091",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      const fAuth = firebase.auth();
+      const fDb = firebase.firestore();
+
+      // db.settings({ timestampsInSnapshots: true})
+    </script>
+
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/index.js"></script>
+  </body>
+</html>
